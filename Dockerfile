@@ -36,15 +36,15 @@ ADD default /etc/nginx/sites-available/default
 
 RUN update-rc.d -f nginx disable
 
-##RUN mkdir /srv/nginx/html
-##RUN chown 755 /srv/nginx/html
+RUN mkdir -p /srv/nginx/html
+RUN chown 755 /srv/nginx/html
 
 # supervisord
 RUN apt-get install supervisor -y
 
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-##VOLUME ["/srv/nginx/html", "/var/log/nginx"]
+VOLUME ["/srv/nginx/html", "/var/log/nginx"]
 
 EXPOSE 80
 
