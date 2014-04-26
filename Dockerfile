@@ -1,4 +1,4 @@
-# Nginx container used for local development environment
+# Nginx server generic image source
 #
 # Version 0.2.0
 
@@ -17,7 +17,17 @@ RUN dpkg-reconfigure locales
 
 RUN apt-get install -y python-software-properties
 
-RUN dpkg-divert --local --rename --add /sbin/initctl
+# supervisord
+RUN apt-get install supervisor -y
+RUN update-rc.d -f supervisor disable
+
+ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# start script
+ADD startup /usr/local/bin/startup
+RUN chmod +x /usr/local/bin/startup
+
+CMD ["/usr/local/bin/startup"]
 
 # Environment
 
@@ -36,18 +46,7 @@ RUN update-rc.d -f nginx disable
 
 ADD nginx.conf /etc/nginx/nginx.conf
 
-# start script
-ADD startup /usr/local/bin/startup
-RUN chmod +x /usr/local/bin/startup
-
-# supervisord
-RUN apt-get install supervisor -y
-RUN update-rc.d -f supervisor disable
-
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
 VOLUME ["/etc/nginx/sites-available", "/usr/share/nginx/html", "/var/log/nginx", "/etc/nginx/conf.d", "/srv"]
 
 EXPOSE 80
 
-CMD ["/usr/local/bin/startup"]
