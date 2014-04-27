@@ -10,10 +10,9 @@ MAINTAINER Wiliam Souza <wiliamsouza83@gmail.com>
 ENV LANG en_US.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main restricted universe multiverse" > /etc/apt/sources.list
-
 RUN locale-gen en_US en_US.UTF-8
 RUN dpkg-reconfigure locales
+RUN apt-get update
 
 RUN apt-get install -y python-software-properties
 
@@ -31,13 +30,8 @@ CMD ["/usr/local/bin/startup"]
 
 # Environment
 
-# sources
-RUN echo "deb http://br.archive.ubuntu.com/ubuntu precise-updates main restricted universe multiverse" >> /etc/apt/sources.list
-
 # ppas
 RUN add-apt-repository ppa:nginx/stable -y
-
-# update
 RUN apt-get update
 
 # nginx
@@ -49,4 +43,3 @@ ADD nginx.conf /etc/nginx/nginx.conf
 VOLUME ["/etc/nginx/sites-available", "/usr/share/nginx/html", "/var/log/nginx", "/etc/nginx/conf.d", "/srv"]
 
 EXPOSE 80
-
