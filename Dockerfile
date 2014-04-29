@@ -6,7 +6,7 @@ FROM ubuntu:12.04
 
 MAINTAINER Wiliam Souza <wiliamsouza83@gmail.com>
 
-# Base
+# base
 ENV LANG en_US.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -16,7 +16,7 @@ RUN apt-get update
 
 RUN apt-get install -y python-software-properties
 
-# supervisord
+# supervisor
 RUN apt-get install supervisor -y
 RUN update-rc.d -f supervisor disable
 
@@ -28,7 +28,7 @@ RUN chmod +x /usr/local/bin/startup
 
 CMD ["/usr/local/bin/startup"]
 
-# Environment
+# environment
 
 # ppas
 RUN add-apt-repository ppa:nginx/stable -y

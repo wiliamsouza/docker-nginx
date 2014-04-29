@@ -1,0 +1,10 @@
+nginx:
+  image: wiliamsouza/nginx
+  ports: 
+    - "80:80"
+  volumes:
+    - volumes/sites-available:/etc/nginx/sites-available
+    - volumes/html:/usr/share/nginx/html
+    - volumes/conf.d:/etc/nginx/conf.d
+    - volumes/log:/var/log/nginx
+    - volumes/srv:/srv
