@@ -2,7 +2,7 @@
 #
 # Version 0.2.0
 
-FROM ubuntu:12.04
+FROM ubuntu:14.04
 
 MAINTAINER Wiliam Souza <wiliamsouza83@gmail.com>
 
@@ -12,9 +12,10 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN locale-gen en_US en_US.UTF-8
 RUN dpkg-reconfigure locales
-RUN apt-get update
+RUN apt-get update --fix-missing
 
 RUN apt-get install -y python-software-properties
+RUN apt-get install -y software-properties-common
 
 # supervisor
 RUN apt-get install supervisor -y
@@ -31,11 +32,16 @@ CMD ["/usr/local/bin/startup"]
 # environment
 
 # ppas
-RUN add-apt-repository ppa:nginx/stable -y
+RUN apt-add-repository ppa:osvaldo-neto/libmaxminddb
+RUN apt-add-repository ppa:osvaldo-neto/nginx
+##RUN add-apt-repository ppa:nginx/stable -y
 RUN apt-get update
 
+
+
 # nginx
-RUN apt-get install nginx nginx-extras -y
+## RUN apt-get install nginx nginx-extras -y
+RUN apt-get install nginx-custom -y
 RUN update-rc.d -f nginx disable
 
 ADD nginx.conf /etc/nginx/nginx.conf

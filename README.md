@@ -6,22 +6,15 @@ Docker nginx server generic image source. This is based on `ubuntu:12.04` image.
 Image
 -----
 
-You can `pull` a ready to use image from Docker
-[index](https://index.docker.io/u/wiliamsouza/) running:
+Build this repository:
 
 ```
-$ docker.io pull wiliamsouza/nginx
-```
-
-Or build this repository:
-
-```
-$ git clone https://github.com/wiliamsouza/docker-nginx.git
+$ git clone https://github.com/osantana/docker-nginx.git
 $ cd docker-nginx/
-$ docker.io build -t wiliamsouza/nginx .
+$ docker.io build -t osantana/nginx .
 ```
 
-Change `wiliamsouza/nginx` to your Docker index username.
+Change `osantana/nginx` to your Docker index username.
 
 Container
 ---------
@@ -48,7 +41,7 @@ $ docker.io run -p 80:80 -i \
 -v `pwd`/volumes/conf.d:/etc/nginx/conf.d \
 -v `pwd`/volumes/log:/var/log/nginx \
 -v `pwd`/volumes/srv:/srv \
--t wiliamsouza/nginx /bin/bash
+-t osantana/nginx /bin/bash
 ```
 
 The command above will start a container give you a shell. Don't
@@ -63,7 +56,7 @@ $ docker.io run --name nginx -p 80:80 -d \
 -v `pwd`/volumes/conf.d:/etc/nginx/conf.d \
 -v `pwd`/volumes/log:/var/log/nginx \
 -v `pwd`/volumes/srv:/srv \
--t wiliamsouza/nginx
+-t osantana/nginx
 ```
 
 The command above will start a container and return its ID.
