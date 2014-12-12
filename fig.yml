@@ -1,6 +1,6 @@
 nginx:
-  image: wiliamsouza/nginx
-  ports: 
+  build: .
+  ports:
     - "80:80"
   volumes:
     - volumes/sites-available:/etc/nginx/sites-available

@@ -11,6 +11,7 @@ Build this repository:
 ```
 $ git clone https://github.com/wiliamsouza/docker-nginx.git
 $ cd docker-nginx/
+git checkout feature/osantana
 $ docker.io build -t osantana/nginx .
 ```
 

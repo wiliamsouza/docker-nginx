@@ -1,0 +1,5 @@
+172.17.42.1 - - [12/Dec/2014:13:23:28 +0000] "GET /pais_desta_porra HTTP/1.1" 404 177 "-" "curl/7.35.0"
+192.168.1.110 - - [12/Dec/2014:13:23:50 +0000] "GET /pais_desta_porra HTTP/1.1" 404 177 "-" "curl/7.35.0"
+192.168.1.110 - - [12/Dec/2014:13:24:02 +0000] "GET /pais_desta_porra HTTP/1.1" 404 177 "-" "curl/7.35.0"
+192.168.1.110 - - [12/Dec/2014:13:24:36 +0000] "GET /pais_dessa_porra HTTP/1.1" 404 209 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36"
+192.168.1.110 - - [12/Dec/2014:13:24:37 +0000] "GET /favicon.ico HTTP/1.1" 404 209 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36"
