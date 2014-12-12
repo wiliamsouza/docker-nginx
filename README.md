@@ -1,7 +1,7 @@
 docker-nginx
 ------------
 
-Docker nginx server generic image source. This is based on `ubuntu:12.04` image.
+Docker nginx server generic image source. This is based on `ubuntu:14.04` image.
 
 Image
 -----
@@ -9,7 +9,7 @@ Image
 Build this repository:
 
 ```
-$ git clone https://github.com/osantana/docker-nginx.git
+$ git clone https://github.com/wiliamsouza/docker-nginx.git
 $ cd docker-nginx/
 $ docker.io build -t osantana/nginx .
 ```
