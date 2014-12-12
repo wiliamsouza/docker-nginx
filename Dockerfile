@@ -49,3 +49,4 @@ ADD nginx.conf /etc/nginx/nginx.conf
 VOLUME ["/etc/nginx/sites-available", "/usr/share/nginx/html", "/var/log/nginx", "/etc/nginx/conf.d", "/srv"]
 
 EXPOSE 80
+EXPOSE 443
